@@ -32,7 +32,8 @@ public class Instructor {
     // referencing the Course class
     @OneToMany(mappedBy = "instructor",
                cascade = {CascadeType.MERGE, CascadeType.DETACH,
-                          CascadeType.REFRESH, CascadeType.PERSIST})
+                          CascadeType.REFRESH, CascadeType.PERSIST},
+               fetch = FetchType.EAGER)
     private List<Course> courses;
 
     // define constructors
