@@ -9,4 +9,6 @@ public interface AppDAO {
     // find instructor by id
     Instructor findInstructorById(int theId);
 
+    void deleteInstructorById(int theId);
+
 }
