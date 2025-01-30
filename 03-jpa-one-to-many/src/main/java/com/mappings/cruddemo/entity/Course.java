@@ -16,6 +16,9 @@ public class Course {
     @Column(name = "title")
     private String title;
 
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+                          CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name="instructor_id")
     private Instructor instructor;
 
     // define constructors
