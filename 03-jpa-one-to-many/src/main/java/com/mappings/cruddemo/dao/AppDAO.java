@@ -1,7 +1,10 @@
 package com.mappings.cruddemo.dao;
 
+import com.mappings.cruddemo.entity.Course;
 import com.mappings.cruddemo.entity.Instructor;
 import com.mappings.cruddemo.entity.InstructorDetail;
+
+import java.util.List;
 
 public interface AppDAO {
 
@@ -15,5 +18,7 @@ public interface AppDAO {
     InstructorDetail findInstructorDetailById(int theId);
 
     void deleteInstructorDetailById(int theId);
+
+    List<Course> findCoursesByInstructorId(int theId);
 
 }
