@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "course")
 public class Course {
 
+    // define fields
+    // mapping the field names to the database columns
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,12 +56,12 @@ public class Course {
 
     // define toString
 
+
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", instructor=" + instructor +
                 '}';
     }
 
