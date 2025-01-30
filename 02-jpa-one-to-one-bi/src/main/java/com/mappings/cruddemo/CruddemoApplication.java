@@ -34,10 +34,29 @@ public class CruddemoApplication {
 
 		//	findInstructor(appDAO);
 
-			deleteInstructor(appDAO);
+		//	deleteInstructor(appDAO);
+
+			findInstructorDetail(appDAO);
 
 		};
 	}
+
+	private void findInstructorDetail(AppDAO appDAO) {
+
+		// get the instructor detail object
+		int theId = 2;
+		InstructorDetail tempInstructor = appDAO.findInstructorDetailById(theId);
+
+		// print the instructor detail
+		System.out.println("tempInstructor: " + tempInstructor);
+
+		// print the associated instructor
+		System.out.println("the associated instructor: " + tempInstructor.getInstructor());
+
+		System.out.println("Completed");
+
+	}
+
 
 	private void deleteInstructor(AppDAO appDAO) {
 
