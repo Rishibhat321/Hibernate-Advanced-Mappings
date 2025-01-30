@@ -24,4 +24,14 @@ public class AppDAOImpl implements AppDAO {
         entityManager.persist(theInstructor);
 
     }
+
+    @Override
+    public Instructor findInstructorById(int theId) {
+        Instructor theInstructor = entityManager.find(Instructor.class, theId);
+        return theInstructor;
+
+    }
+
+
+
 }
