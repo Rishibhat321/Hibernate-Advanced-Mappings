@@ -36,11 +36,19 @@ public class CruddemoApplication {
 
 	private void createInstructor(AppDAO appDAO) {
 
+		/*
 		// create the instructor
 		Instructor tempInstructor = new Instructor("Rishita", "Bhatnagar", "rishi@gmail.com");
 
 		// create the Instructor detail
-		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.thymeleaf.org/youtube", "thymeleaf");
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.com/youtube", "guitar");
+		 */
+
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Suraj", "Bhatia", "suraj@gmail.com");
+
+		// create the Instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.com/youtube", "Badmintion");
 
 		// associate the objects
 		tempInstructor.setInstructorDetail(tempInstructorDetail);

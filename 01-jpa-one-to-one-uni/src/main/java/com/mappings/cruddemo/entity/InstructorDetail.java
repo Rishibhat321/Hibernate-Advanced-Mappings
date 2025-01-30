@@ -22,9 +22,9 @@ public class InstructorDetail {
 
     }
 
-    public InstructorDetail(String hobby, String youtubeChannel) {
-        this.hobby = hobby;
+    public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;
+        this.hobby = hobby;
     }
 
     // define getters/setters

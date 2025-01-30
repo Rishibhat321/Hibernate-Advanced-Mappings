@@ -31,10 +31,10 @@ public class Instructor {
 
     }
 
-    public Instructor(String email, String firstName, String lastName) {
-        this.email = email;
+    public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
 
     // define getters/setters
