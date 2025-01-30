@@ -1,6 +1,7 @@
 package com.mappings.cruddemo;
 
 import com.mappings.cruddemo.dao.AppDAO;
+import com.mappings.cruddemo.entity.Course;
 import com.mappings.cruddemo.entity.Instructor;
 import com.mappings.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -38,10 +39,43 @@ public class CruddemoApplication {
 
 		//	findInstructorDetail(appDAO);
 
-			deleteInstructorDetail(appDAO);
+		//	deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 
 		};
 	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Madhu", "Patel", "madhu@gmail.com");
+
+		// create the Instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.com", "Video Games");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some courses
+		Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
+		Course tempCourse2 = new Course("The Pinball Masterclass");
+
+		// add courses to instructor
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+
+		// save the instructor
+		// this will also save the courses
+		// because of CascadeType.PERSIST
+		System.out.println("Saving instructor: " + tempInstructor);
+		System.out.println("The courses: " + tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+
+		System.out.println("Saved!");
+
+	}
+
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
 
@@ -104,14 +138,14 @@ public class CruddemoApplication {
 		Instructor tempInstructor = new Instructor("Rishita", "Bhatnagar", "rishi@gmail.com");
 
 		// create the Instructor detail
-		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.com/youtube", "guitar");
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.com", "guitar");
 */
 
 		// create the instructor
 		Instructor tempInstructor = new Instructor("Suraj", "Bhatia", "suraj@gmail.com");
 
 		// create the Instructor detail
-		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.com/youtube", "Badmintion");
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.youtube.com", "Badmintion");
 
 		// associate the objects
 		tempInstructor.setInstructorDetail(tempInstructorDetail);
