@@ -1,5 +1,8 @@
 package com.mappings.cruddemo;
 
+import com.mappings.cruddemo.dao.AppDAO;
+import com.mappings.cruddemo.entity.Instructor;
+import com.mappings.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,12 +16,42 @@ public class CruddemoApplication {
 	}
 
 	// Executed after the spring beans have been loaded.
-	@Bean
+/*	@Bean
 	public CommandLineRunner commandLineRunner(String[] args) {
 
 		return runner -> {
 			System.out.println("Hello World");
 		};
+	}
+
+ */
+
+	@Bean
+	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
+
+		return runner -> {
+			createInstructor(appDAO);
+		};
+	}
+
+	private void createInstructor(AppDAO appDAO) {
+
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Rishita", "Bhatnagar", "rishi@gmail.com");
+
+		// create the Instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.thymeleaf.org/youtube", "thymeleaf");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// save the instructor
+		// this will also save the details object
+		// because of CascadeType.ALL
+		System.out.println("Saving instructor: " + tempInstructor);
+		appDAO.save(tempInstructor);
+
+		System.out.println("Completed");
 	}
 
 }
