@@ -55,10 +55,23 @@ public class CruddemoApplication {
 
 		//	updateCourse(appDAO);
 
-			deleteInstructorOneToMany(appDAO);
+		//	deleteInstructorOneToMany(appDAO);
+
+			deleteCourse(appDAO);
 
 		};
 	}
+
+	private void deleteCourse(AppDAO appDAO) {
+
+		int theId = 10;
+		System.out.println("Deleting course id: " + theId);
+
+		appDAO.deleteCourseById(theId);
+
+		System.out.println("Course Deleted!");
+	}
+
 
 	private void deleteInstructorOneToMany(AppDAO appDAO) {
 
