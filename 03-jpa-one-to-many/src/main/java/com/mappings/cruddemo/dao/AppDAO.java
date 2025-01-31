@@ -32,5 +32,4 @@ public interface AppDAO {
     void deleteInstructorByIdOneToMany(int theId);
 
 
-
 }
