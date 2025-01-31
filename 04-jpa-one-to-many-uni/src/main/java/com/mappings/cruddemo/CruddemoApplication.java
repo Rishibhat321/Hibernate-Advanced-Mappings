@@ -37,11 +37,27 @@ public class CruddemoApplication {
 
 		//	createCourseAndReviews(appDAO);
 
-			retrieveCourseAndReviews(appDAO);
+		//	retrieveCourseAndReviews(appDAO);
+
+			deleteCourseAndReviews(appDAO);
 
 
 		};
 	}
+
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+
+		int theId = 10;
+
+		System.out.println("Deleting course id: " + theId);
+
+		// this will create the course and  also the associated reviews
+		// because of CascadeType.ALL
+		appDAO.deleteCourseById(theId);
+
+		System.out.println("Deleted!");
+	}
+
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
 
