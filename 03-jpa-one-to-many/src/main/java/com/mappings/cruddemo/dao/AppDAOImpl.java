@@ -86,5 +86,25 @@ public class AppDAOImpl implements AppDAO {
 
     }
 
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int theId) {
+
+        // create query
+        // JOIN FETCH is similar to EAGER LOADING.
+        // i is the alias name.
+        TypedQuery<Instructor> query = entityManager.createQuery(
+                "select i from Instructor i " +
+                        "JOIN FETCH i.courses " +
+                        "where i.id = :data", Instructor.class);
+
+        query.setParameter("data", theId);
+
+        // execute query
+        Instructor instructor = query.getSingleResult();
+
+        return instructor;
+
+    }
+
 
 }
