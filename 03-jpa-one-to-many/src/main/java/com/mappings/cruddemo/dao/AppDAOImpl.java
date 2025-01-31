@@ -108,4 +108,14 @@ public class AppDAOImpl implements AppDAO {
     }
 
 
+    @Override
+    @Transactional
+    public void update(Instructor tempInstructor) {
+
+        // update an existing entity
+        entityManager.merge(tempInstructor);
+
+    }
+
+
 }
