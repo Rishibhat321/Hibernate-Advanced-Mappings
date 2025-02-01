@@ -29,6 +29,7 @@ public class Course {
     @JoinColumn(name = "course_id")
     private List<Review> reviews;
 
+
     private List<Student> students;
 
     // define constructors
